@@ -1,0 +1,29 @@
+1.1
+find webstudio -type f | wc -l
+
+Il y a 21 fichiers dans webstudio/
+
+1.2
+find webstudio -name "*.conf"
+Liste des fichiers .conf :
+webstudio/configs/app.conf
+webstudio/configs/api.conf
+webstudio/configs/old.conf
+
+1.3
+find webstudio -type f -empty
+
+Tous les fichiers vides :
+webstudio/configs/old.conf
+webstudio/scripts/legacy.sh
+webstudio/scripts/empty.sh
+webstudio/data/empty1.csv
+webstudio/data/empty2.csv
+
+Pour les compter, on peut utiliser la commande :
+find webstudio -type f -empty | wc -l
+qui nous retourne 5
+
+1.4
+du -sh webstudio/uploads/
+0

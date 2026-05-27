@@ -1,0 +1,32 @@
+2.1
+wc -l < webstudio/logs/access.log
+
+20
+
+Il y a 20 requêtes dans le fichier access.log
+
+2.2
+awk '{print $1}' webstudio/logs/access.log | sort | uniq -c | sort -rn | head -3
+
+Liste des 3 IP qui ont fait le plus de requêtes :
+11 192.168.1.10
+ 6 10.0.0.5
+ 3 172.16.0.20
+
+2.3
+awk '$6 >= 400' webstudio/logs/access.log | wc -l
+
+6 requêtes avec un code d'érreur
+
+2.4
+awk '{print $6}' webstudio/logs/access.log | sort | uniq -c | sort -rn
+
+14 200
+ 3 403
+ 2 500
+ 1 401
+
+2.5
+grep "/admin" webstudio/logs/access.log | awk '{print $1}' | sort -u
+
+L'IP suspecte est 172.16.0.20
